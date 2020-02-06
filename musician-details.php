@@ -8,16 +8,16 @@
 
 <form method="post" action="save-musician.php">
     <fieldset>
-        <label for="name">Name:</label>
-        <input name="name" id="name" />
+        <label for="name">Name: *</label>
+        <input name="name" id="name" required maxlength="100" />
     </fieldset>
     <fieldset>
         <label for="recordLabel">Record Label:</label>
-        <input name="recordLabel" id="recordLabel" />
+        <input name="recordLabel" id="recordLabel" maxlength="50" />
     </fieldset>
     <fieldset>
         <label for="ranking">Ranking:</label>
-        <input name="ranking" id="ranking" />
+        <input name="ranking" id="ranking" type="number" min="0" />
     </fieldset>
     <fieldset>
         <label for="solo">Solo:</label>
@@ -29,7 +29,7 @@
     </fieldset>
     <fieldset>
         <label for="city">City:</label>
-        <input name="city" id="city" />
+        <input name="city" id="city" maxlength="50" />
     </fieldset>
     <button>Save</button>
 </form>
