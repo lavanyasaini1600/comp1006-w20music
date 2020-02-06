@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Musician Library</title>
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
 </head>
 <body>
 
@@ -17,7 +19,7 @@ $cmd->execute();
 $musicians = $cmd->fetchAll();
 
 // start table
-echo '<table border="1"><thead><th>Name</th><th>Label</th><th>Ranking</th><th>Solo</th><th>City</th></thead>';
+echo '<table class="table table-striped table-hover"><thead><th>Name</th><th>Label</th><th>Ranking</th><th>Solo</th><th>City</th></thead>';
 
 // loop through data and display the results
 foreach ($musicians as $value) {
