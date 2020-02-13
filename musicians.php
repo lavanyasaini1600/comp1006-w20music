@@ -10,7 +10,7 @@
 
 <?php
 // connect
-$db = new PDO('mysql:host=172.31.22.43;dbname=Rich100', 'Rich100', 'x');
+$db = new PDO('mysql:host=172.31.22.43;dbname=Rich100', 'Rich100', 'V');
 
 // set up & execute query
 $sql = "SELECT * FROM musicians";
@@ -27,11 +27,17 @@ foreach ($musicians as $value) {
         <td>' . $value['recordLabel'] . '</td>
         <td>' . $value['ranking'] . '</td>
         <td>' . $value['solo'] . '</td>
-        <td>' . $value['city'] . '</td></tr>';
+        <td>' . $value['city'] . '</td>
+        <td><a class="text-danger" href="delete-musician.php?musicianId=' . $value['musicianId'] . '"
+            onclick="return confirmDelete();">Delete</a></td>
+        </tr>';
 }
 
 echo '</table>';
 ?>
+
+<!-- include our custom js library -->
+<script src="js/scripts.js" type="text/javascript"></script>
 
 </body>
 </html>
