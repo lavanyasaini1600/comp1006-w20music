@@ -8,6 +8,7 @@
 
 <?php
 // save inputs
+$musicianId = $_POST['musicianId'];  // we need the id if we are updating an existing record
 $name = $_POST['name'];
 $recordLabel = $_POST['recordLabel'];
 $ranking = $_POST['ranking'];
@@ -55,9 +56,16 @@ if ($ok == true) {
     // connect
     $db = new PDO('mysql:host=172.31.22.43;dbname=Rich100', 'Rich100', 'x');
 
-    // set up insert
-    $sql = "INSERT INTO musicians (name, recordLabel, ranking, solo, photo, city) VALUES 
+    // set up insert or update
+    if (empty($musicianId)) {
+        $sql = "INSERT INTO musicians (name, recordLabel, ranking, solo, photo, city) VALUES 
         (:name, :recordLabel, :ranking, :solo, :photo, :city)";
+    }
+    else {
+        $sql = "UPDATE musicians SET name = :name, recordLabel = :recordLabel, ranking = :ranking, solo = :solo,
+            photo = :photo, city = :city WHERE musicianId = :musicianId";
+    }
+
     $cmd = $db->prepare($sql);
 
     // bind the variables into the INSERT command
@@ -68,13 +76,18 @@ if ($ok == true) {
     $cmd->bindParam(':photo', $photo, PDO::PARAM_STR, 100);
     $cmd->bindParam(':city', $city, PDO::PARAM_STR, 50);
 
+    if (!empty($musicianId)) {
+        $cmd->bindParam(':musicianId', $musicianId, PDO::PARAM_INT);
+    }
+
     // save to db
     $cmd->execute();
 
     // disconnect
     $db = null;
 
-    echo 'Musician Saved';
+    //echo 'Musician Saved';
+    header('location:musicians.php');
 }
 ?>
 

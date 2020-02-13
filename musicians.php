@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
 </head>
 <body>
-
+<h1>Musician List</h1>
+<a href="musician-details.php">Add a New Musician</a>
 <?php
 // connect
-$db = new PDO('mysql:host=172.31.22.43;dbname=Rich100', 'Rich100', 'V');
+$db = new PDO('mysql:host=172.31.22.43;dbname=Rich100', 'Rich100', 'x');
 
 // set up & execute query
 $sql = "SELECT * FROM musicians";
@@ -23,7 +24,7 @@ echo '<table class="table table-striped table-hover"><thead><th>Name</th><th>Lab
 
 // loop through data and display the results
 foreach ($musicians as $value) {
-    echo '<tr><td>' . $value['name'] . '</td>
+    echo '<tr><td><a href="musician-details.php?musicianId=' . $value['musicianId'] . '">' . $value['name'] . '</a></td>
         <td>' . $value['recordLabel'] . '</td>
         <td>' . $value['ranking'] . '</td>
         <td>' . $value['solo'] . '</td>
