@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Musician Details</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-</head>
-<body>
-
 <?php
+// set page title for header
+$title = 'Musician Details';
+
+// embed header
+require_once('header.php');
+
 // initialize variables
 $musicianId = null;
 $name = null;
@@ -73,5 +70,6 @@ if (!empty($_GET['musicianId'])) {
     <button class="offset-md-2 btn btn-primary">Save</button>
 </form>
 
-</body>
-</html>
+<?php
+require_once('footer.php');
+?>

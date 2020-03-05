@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Musician Library</title>
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-</head>
-<body>
+<?php
+// set the page title so the header can display it
+$title = 'Musicians';
+
+// use the require_once function to embed the shared header here
+require_once('header.php');
+?>
+
 <h1>Musician List</h1>
 <a href="musician-details.php">Add a New Musician</a>
 <?php
@@ -35,10 +34,6 @@ foreach ($musicians as $value) {
 }
 
 echo '</table>';
+
+require_once('footer.php');
 ?>
-
-<!-- include our custom js library -->
-<script src="js/scripts.js" type="text/javascript"></script>
-
-</body>
-</html>
