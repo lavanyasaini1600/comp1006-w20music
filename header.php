@@ -9,7 +9,7 @@
 </head>
 <body>
 <!-- navbar from https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp -->
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+<nav class="navbar navbar-expand-md bg-navy navbar-dark">
     <!-- Brand -->
     <a class="navbar-brand" href="index.php">COMP1006 Music Library</a>
 

@@ -54,7 +54,7 @@ if (!empty($ranking)) {
 // is the form ok?
 if ($ok == true) {
     // connect
-    $db = new PDO('mysql:host=172.31.22.43;dbname=Rich100', 'Rich100', 'x');
+    $db = new PDO('mysql:host=172.31.22.43;dbname=Rich100', 'Rich100', 'Vda787-KJ_');
 
     // set up insert or update
     if (empty($musicianId)) {

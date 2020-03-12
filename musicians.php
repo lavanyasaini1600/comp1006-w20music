@@ -10,7 +10,7 @@ require_once('header.php');
 <a href="musician-details.php">Add a New Musician</a>
 <?php
 // connect
-$db = new PDO('mysql:host=172.31.22.43;dbname=Rich100', 'Rich100', 'x');
+$db = new PDO('mysql:host=172.31.22.43;dbname=Rich100', 'Rich100', 'Vda787-KJ_');
 
 // set up & execute query
 $sql = "SELECT * FROM musicians";

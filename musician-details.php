@@ -20,7 +20,7 @@ if (!empty($_GET['musicianId'])) {
     // if there is a musicianId, query the db for the details on this record so we can populate the form
     $musicianId = $_GET['musicianId'];
 
-    $db = new PDO('mysql:host=172.31.22.43;dbname=Rich100', 'Rich100', 'x');
+    $db = new PDO('mysql:host=172.31.22.43;dbname=Rich100', 'Rich100', 'Vda787-KJ_');
     $sql = "SELECT * FROM musicians WHERE musicianId = $musicianId";
     $cmd = $db->prepare($sql);
     $cmd->bindParam(':musicianId', $musicianId, PDO::PARAM_INT);
