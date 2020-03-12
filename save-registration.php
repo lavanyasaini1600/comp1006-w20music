@@ -25,6 +25,19 @@ if ($ok) {
     // 3. connect
     require_once 'db.php';
 
+    // 3a. check if username already exists
+    $sql = "SELECT * FROM users WHERE username = :username";
+    $cmd = $db->prepare($sql);
+    $cmd->bindParam(':username', $username, PDO::PARAM_STR, 50);
+    $cmd->execute();
+    $user = $cmd->fetch();
+
+    // if we found a record with this username, stop execution and don't insert again
+    if (!empty($user)) {
+        echo 'Username already exists';
+        exit(); // this stops execution of any more PHP code on this page
+    }
+
     // 4. set up SQL INSERT to users table
     $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
     $cmd = $db->prepare($sql);
@@ -39,6 +52,7 @@ if ($ok) {
 
     // 7. Disconnect & redirect to login
     $db = null;
+    header('location:login.php');
 
 }
 
